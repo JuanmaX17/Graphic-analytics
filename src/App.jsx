@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
     <Wrapper gap="20px" maxWd="840px">
-      Bienvenido
+      Bienvenido a la analitica
       <BalanceHead />
       <Analytics />
     </Wrapper>
