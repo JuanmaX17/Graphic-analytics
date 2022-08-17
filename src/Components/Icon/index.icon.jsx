@@ -5,6 +5,5 @@ export default function Icon({ metric }) {
     <figure>
       <img src={metric} alt="img icon" />
     </figure>
-
   );
 }

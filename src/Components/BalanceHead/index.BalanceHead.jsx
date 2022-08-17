@@ -16,7 +16,9 @@ export function BalanceHead(props) {
     <Balance {...propsDwon}>
       <WrapperRow>
         <SpanWhite>My balance</SpanWhite>
-        <SpanWhite size="1.6rem" weight="600">$921.48</SpanWhite>
+        <SpanWhite size="1.6rem" weight="600">
+          $921.48
+        </SpanWhite>
       </WrapperRow>
     </Balance>
   );

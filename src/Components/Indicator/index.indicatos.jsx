@@ -1,24 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { WrapperRow } from '../../StyledComponents/Wrappers';
+import { IndicatorHov } from '../../StyledComponents/hovers';
+import { SpanGray } from '../../StyledComponents/Sapans';
 import './indicator.css';
 
-export function Indicator({
-  bg, metric, percent, visible, handleVisibility,
-}) {
-  const refIndicator = useRef();
-  useEffect(() => {
-    console.log('esto', refIndicator.current);
-    refIndicator.current.onmouseover = () => handleVisibility([metric]);
-  }, []);
-  const visibility = visible.some((item) => {
-    console.log(item, 'esss', metric);
-    return item === metric;
-  });
+export function Indicator({ bg, metric, percent, maxPercent }) {
+  const { select, unSelect } = bg;
+  console.log('data', maxPercent, percent);
+  const bgPercent = maxPercent === percent ? select : unSelect;
   return (
     <WrapperRow>
-      <div className={`indicator__percent ${visibility && 'visible'}`}>{`$ ${percent * 2}`}</div>
-      <div className="indicator" style={{ background: bg, height: `${percent * 1.4}px` }} ref={refIndicator} />
-      <span>{metric}</span>
+      <IndicatorHov style={{ background: bgPercent, height: `${percent}px` }} />
+      <div className="indicator__percent">{`$ ${percent}`}</div>
+      <SpanGray>{metric}</SpanGray>
     </WrapperRow>
   );
 }
